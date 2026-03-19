@@ -13,6 +13,10 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Citizen API", Version = "v1" });
 }); 
 
+builder.Services.AddScoped<CitizensWebApi.Services.FileService>();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<CitizensWebApi.Services.CitizenService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
